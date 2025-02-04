@@ -24,10 +24,5 @@ jobs:
           distribution: 'adopt'
           java-version: '17'
 
-      - name: Set up Gradle
-        uses: gradle/setup-gradle@v3
-        with:
-          caching: 'gradle'
-
       - name: Build with gradle
         run: ./gradlew build
