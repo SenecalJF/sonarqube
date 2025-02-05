@@ -31,4 +31,4 @@ jobs:
         run: Expand-Archive -Path .\sonar-application\build\distributions\sonar-application-25.2-SNAPSHOT.zip -DestinationPath .\sonarqube
 
       - name: Start SonarQube
-        run: .\sonarqube\bin\windows-x86-64\StartSonar.bat
+        run: .\sonarqube\sonarqube-25.2-SNAPSHOT\bin\windows-x86-64\StartSonar.bat
