@@ -60,6 +60,12 @@ test {
 task dumpSchema(type:JavaExec) {
     mainClass = 'org.sonar.db.dump.DumpSQSchema'
     classpath = sourceSets.test.runtimeClasspath
+
+  if (System.getenv('CI')) {
+    tasks.named('dumpSchema').configure {
+      enabled = false
+    }
+  }
 }
 
 tasks.check.dependsOn dumpSchema
@@ -73,6 +79,7 @@ task createDB(type:JavaExec) {
     systemProperty 'sonar.communityRuntimeVersion', project.version
   }
 }
+
 
 task populateDB(type: JavaExec) {
   mainClass = 'org.sonar.db.createdb.PopulateDb'
