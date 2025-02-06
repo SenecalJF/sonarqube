@@ -31,7 +31,7 @@ jobs:
         run: ./gradlew build
 
       - name: Unzip SonarQube Distribution
-        run: Expand-Archive -Path .\sonar-application\build\distributions\sonar-application-25.2-SNAPSHOT.zip -DestinationPath .\sonarqube
+        run: unzip ./sonar-application/build/distributions/sonar-application-25.2-SNAPSHOT.zip -d ./sonarqube
 
       - name: Start SonarQube
-        run: .\sonarqube\sonarqube-25.2-SNAPSHOT\bin\windows-x86-64\StartSonar.bat
+        run: ./sonarqube/sonarqube-25.2-SNAPSHOT/bin/linux-x86-64/sonar.sh start
