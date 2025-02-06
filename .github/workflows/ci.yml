@@ -24,6 +24,9 @@ jobs:
           distribution: 'adopt'
           java-version: '17'
 
+      - name: First build ide
+        run: ./gradlew ide
+
       - name: Build with gradle
         run: ./gradlew build
 
