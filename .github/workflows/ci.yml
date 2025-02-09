@@ -6,7 +6,6 @@ on:
       - master
   pull_request:
     types: [opened, synchronize, reopened]
-  workflow_dispatch:
 
 jobs:
   build:
@@ -29,9 +28,3 @@ jobs:
 
       - name: Build with gradle
         run: ./gradlew build
-
-      - name: Unzip SonarQube Distribution
-        run: unzip ./sonar-application/build/distributions/sonar-application-25.2-SNAPSHOT.zip -d ./sonarqube
-
-      - name: Start SonarQube
-        run: ./sonarqube/sonarqube-25.2-SNAPSHOT/bin/linux-x86-64/sonar.sh start
